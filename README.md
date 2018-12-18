@@ -8,59 +8,40 @@ Code of the recurrent neurall network(RNN) which learn the finite states  machin
 
 ## How RNN learns FSM in brief
 ![](https://i.imgur.com/GJTnDk6.png)
+In short, the RNN takes a word vector "W" and a state vector "S" as the input vector. "W" means the next word read, the value should be 1 on the corresponding position, and 0 for the rest. "S" means the current state, the value should be 1 on the current state and 0 for the rest. Transition tensor is the part that calculate the probability of going from one x state to y state through word z. And we normalize the output of transition tensor, so the outputs add up to 1, and can be seen as probability.  The output of normalized values are fed back as the input. It is a pretty intuitive thing to do. Since the nextt state depends on the current state and the next word.
+A more detailed explanation of how the RNN works will be shown in another page, with code.
 
-## Setup
-
-### Prerequisite
-* Python 3
-* Facebook Page and App
-* HTTPS Server
-
-#### Install Dependency
-```sh
-pip install -r requirements.txt
-```
-
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
-
-#### Secret Data
-
-`VERIFY_TOKEN` and `ACCESS_TOKEN` **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
-
-#### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
-
-**`ngrok` would be used in the following instruction**
-
-```sh
-./ngrok http 5000
-```
-
-After that, `ngrok` would generate a https URL.
-
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-## Finite State Machine
-![fsm](./img/show-fsm.png)
-
-## Usage
-The initial state is set to `user`.
-
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
-
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
-
-
+## The FSM(words shown)
+![](https://i.imgur.com/i4v7Q4N.png)
+### States
+* 4 states, initial state: 0, final states: 2, 3
+### limited dictionary: 
+* noun (singular): boy, girl, book, pencil, pen, burger, cup, computer, phone, apple
+* noun (plural): boys, girls, books, pencils, pens, burgers, cups, computers, phones, apples
+* B_verb: is , are, am
+* P: I, he, she, it
+* Other: this, that, these, those, not, a, an, the, with
+* verb1: read, write, eat, use, drink, have
+* verb2: reads, writes, ears, uses, drinks, has
+## The FSM
+![](https://i.imgur.com/Z94C8qP.png)
+### Condtions
+* zero_to_zero
+* zero_to_one
+* zero_to_two
+* zero_to_three
+* one_to_zero
+* one_to_one
+* one_to_two
+* one_to_three
+* two_to_zero
+* two_to_one
+* two_to_two
+* two_to_three
+* three_to_zero
+* three_to_one
+* three_to_two
+* three_to_three
 ## Reference
-[TOC-Project-2017](https://github.com/Lee-W/TOC-Project-2017) ❤️ [@Lee-W](https://github.com/Lee-W)
+* Automation_Generator https://github.com/pgrachev/Automaton-Generator
+* Reading about Neural network for synthesizing deterministic finite automata https://www.sciencedirect.com/science/article/pii/S1877050917323724
