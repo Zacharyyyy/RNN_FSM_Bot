@@ -7,7 +7,7 @@ A Facebook messenger bot based on this finite state machine
 Code of the recurrent neurall network(RNN) which learn the finite states  machine(FSM) will be given in another github page.
 
 ## How RNN learns FSM in brief
-
+[](https://i.imgur.com/GJTnDk6.png)
 
 ## Setup
 
