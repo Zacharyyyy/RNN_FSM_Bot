@@ -1,6 +1,6 @@
 from transitions.extensions import GraphMachine
 
-from utils import send_text_message
+from utils import send_text_message, send_image_url
 
 
 class TocMachine(GraphMachine):
@@ -105,6 +105,7 @@ class TocMachine(GraphMachine):
                 if text == "donnnne":
                         sender_id = event['sender']['id']
                         send_text_message(sender_id, "fail")
+                        send_image_url(sender_id, "https://i.imgur.com/lnEezmF.jpg")
                         #self.go_back("","")
                         self.set_state('0')
                 if text != "":
@@ -116,6 +117,7 @@ class TocMachine(GraphMachine):
                 if text == "donnnne":
                         sender_id = event['sender']['id']
                         send_text_message(sender_id, "fail")
+                        send_image_url(sender_id, "https://i.imgur.com/lnEezmF.jpg")
                         #self.go_back("","")
                         self.set_state('0')
                 if text != "":
@@ -126,6 +128,7 @@ class TocMachine(GraphMachine):
                 if text == "donnnne":
                         sender_id = event['sender']['id']
                         send_text_message(sender_id, "accpet")
+                        send_image_url(sender_id, "https://i.imgur.com/knh0XyK.png")
                         #self.go_back("","")
                         self.set_state('0')
                 if text != "":
@@ -137,6 +140,7 @@ class TocMachine(GraphMachine):
                 if text == "donnnne":
                         sender_id = event['sender']['id']
                         send_text_message(sender_id, "accept")
+                        send_image_url(sender_id, "https://i.imgur.com/knh0XyK.png")
                         #self.go_back("","")
                         self.set_state('0')
                 if text != "":

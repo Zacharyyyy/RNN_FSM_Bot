@@ -20,10 +20,28 @@ def send_text_message(id, text):
     return response
 
 
-"""
-def send_image_url(id, img_url):
-    pass
 
+def send_image_url(id, img_url):
+    url = "{0}/me/messages?access_token={1}".format(GRAPH_URL, ACCESS_TOKEN)
+    data = {
+        "recipient": {
+            "id": id
+        },
+        "message": {
+            "attachment": {
+            "type":"image", 
+            "payload": {
+                "url": img_url,
+                "is_reusable": True
+                }
+            }
+        }
+    }
+    res = requests.post(url, json=data)
+    if res.status_code != 200:
+        print("Unable to send image message: " + res.text)
+    
+"""
 def send_button_message(id, text, buttons):
     pass
 """

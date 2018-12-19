@@ -57,7 +57,7 @@ def webhook_handler():
         if body['object'] == "page":
                 event = body['entry'][0]['messaging'][0]
                 text = ""
-                if event.get("message"):
+                if event['message'].get("text"):
                         text += event['message']['text']
                         text = text.lower()
                         print("***************", text)
