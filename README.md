@@ -9,7 +9,7 @@ Code of the recurrent neurall network(RNN) which learn the finite states  machin
 ## How RNN learns FSM in brief
 ![](https://i.imgur.com/GJTnDk6.png)
 In short, the RNN takes a word vector "W" and a state vector "S" as the input vector. "W" means the next word read, the value should be 1 on the corresponding position, and 0 for the rest. "S" means the current state, the value should be 1 on the current state and 0 for the rest. Transition tensor is the part that calculate the probability of going from one x state to y state through word z. And we normalize the output of transition tensor, so the outputs add up to 1, and can be seen as probability.  The output of normalized values are fed back as the input. It is a pretty intuitive thing to do. Since the nextt state depends on the current state and the next word.
-A more detailed explanation of how the RNN works will be shown in another page, with code.
+A link for more explanation of how the RNN works is in the reference.
 
 ## The FSM(words shown)
 ![](https://i.imgur.com/i4v7Q4N.png)
@@ -45,3 +45,4 @@ A more detailed explanation of how the RNN works will be shown in another page, 
 ## Reference
 * Automation_Generator https://github.com/pgrachev/Automaton-Generator
 * Reading about Neural network for synthesizing deterministic finite automata https://www.sciencedirect.com/science/article/pii/S1877050917323724
+* More detail of the RNN https://github.com/Zacharyyyy/RNN
